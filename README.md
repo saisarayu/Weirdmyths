@@ -73,4 +73,4 @@ Make sure you have the following installed:
 
 ## Contributing
 
-Feel free to fork the repository and sub
+Feel free to fork the repository and sub...
