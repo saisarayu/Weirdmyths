@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@hono/node-server": "^1.13.8",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "mongoose": "^8.10.1"
@@ -13,5 +14,9 @@
   },
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "Project Overview\r This project contains a list of wired myths that our parents and grandparents used to tell us. Sometimes, we used to believe these things, and it makes us remember the funny days. It's a fun and nostalgic experience that will bring back those hilarious moments.",
+  "devDependencies": {
+    "react-scripts": "^5.0.1"
+  },
+  "keywords": []
 }

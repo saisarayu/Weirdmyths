@@ -53,3 +53,10 @@ console.log(user)
 })
 app.listen(port,()=>{
   console.log(`connected Successfully: ${port}`)})
+
+  import { Hono } from "hono";
+import { handle } from "@hono/node-server";
+
+export default {
+  fetch: handle(app),
+};
