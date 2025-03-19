@@ -1,7 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 
-const port = 6000
+const port = 7000
 const app = express();
 const User = require('./schema')
 
@@ -20,6 +20,7 @@ const db = async()=>{
     }
 db();
 let acb =false
+let uyz= true
 
 app.get('/abc',(req,res)=>{
     res.status(200).json({message:'Hello world'})
