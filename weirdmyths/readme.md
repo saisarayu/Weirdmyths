@@ -1,4 +1,5 @@
-#  Unclean Laptop Screens Leaderboard   
+#  Unclean Laptop Screens Leaderboard nano README.md  # If using a terminal-based editor
+  
 
 A fun and unconventional platform where users can **submit, view, vote, and comment** on the **most unclean laptop screens** seen in a classroom.  
 
