@@ -11,6 +11,7 @@ const MyEntity = () => {
     <div>
       <h2>{dummyData.title}</h2>
       <p>{dummyData.description}</p>
+      <h1>{dummyData.xyz}</h1>
     </div>
   );
 };

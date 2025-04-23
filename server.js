@@ -32,10 +32,53 @@ app.get('/abc',(req,res)=>{
  }
 })
 
+
+const SECRET = 'your_secret_key'; // store this in .env for production
+
+app.use(express.json());
+app.use(cookieParser());
+
+// Dummy login route
+app.post('/api/auth/login', (req, res) => {
+  const { email, id } = req.body;
+
+  // Validate inputs (simple check)
+  if (!email || !id) {
+    return res.status(400).json({ message: 'Email and ID required' });
+  }
+
+  // Create JWT token
+  const token = jwt.sign({ email, id }, SECRET, { expiresIn: '1h' });
+
+  // Store in HTTP-only cookie
+  res.cookie('token', token, {
+    httpOnly: true,
+    secure: false, // set to true in production with HTTPS
+    maxAge: 60 * 60 * 1000, // 1 hour
+    sameSite: 'strict',
+  });
+
+  res.json({ message: 'Login successful', token });
+});
+
+// Protected route example
+app.get('/api/protected', (req, res) => {
+  const token = req.cookies.token;
+
+  if (!token) return res.status(401).json({ message: 'Unauthorized' });
+
+  try {
+    const decoded = jwt.verify(token, SECRET);
+    res.json({ message: 'Access granted', user: decoded });
+  } catch (err) {
+    res.status(403).json({ message: 'Invalid or expired token' });
+  }
+});
+
+
 app.listen(port,()=>
     console.log(`connected successfully:${port}`)
 )
-
 }
 
 app.post('/',async(req,res)=>{
@@ -49,7 +92,6 @@ console.log(user)
     }catch(e){
         console.log(e)
     }
-
 
 })
 app.listen(port,()=>{
